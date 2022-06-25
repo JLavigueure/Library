@@ -4,11 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My library</title>
     <script src="java.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="header">
+        <h1 class="title">library</h1>
+        <button id="add">Add Book &#43;</button>
+    </div>
+    <div class="main">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <h2>Add Book</h2>
+                <button id="close-modal">&#x2716</button>
+            </div>
+            <div class="modal-body">
+                <p>Title</p>
+                <input id="title" type="text" placeholder="Harry Potter">
+                <p>Author</p>
+                <input id="author" type="text" placeholder="J.K Rowling">
+                <p>Pages</p>
+                <input id="pages" type="number" placeholder="223">
+                <div class="read">
+                    <p>Have you read this book?</p>
+                    <input id="read" type="checkbox">
+                </div>
+                <button id="submit">Submit</button>
+            </div>
+        </div>
+        <div id="overlay"></div>
+    </div>
 </body>
 </html>

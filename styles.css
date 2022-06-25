@@ -1,0 +1,152 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    padding: 15px 50px;
+
+}
+
+#add {
+    margin-left: auto;
+    width: 120px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(151, 239, 189);
+}
+#add:hover {
+    transform: scale(1.05);
+    background-color: rgb(122, 235, 171);
+}
+
+.main {
+    background-color: rgb(229, 229, 229);
+    flex: 1;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -255px;
+    margin-left: -150px;
+    height: 510px;
+    width: 370px;
+    background-color: white;
+    border-radius: 14px;
+    z-index: 1;
+    transform: scale(0);
+}
+
+.modal-header {
+    background-color: rgb(151, 239, 189);
+    padding: 15px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom: 2px solid black;
+}
+
+#close-modal {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    background-color: rgb(122, 226, 167);
+    border: none;
+    color: rgb(84, 151, 113);
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    gap: 3px;
+}
+
+.modal h2 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.modal p {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.modal-body input {
+    font-size: 20px;
+    margin-bottom: 24px;
+    width: 100%;
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(242, 242, 242);
+}
+
+.modal-body input::placeholder {
+    font-size: 18px;
+    opacity: 50%;
+}
+
+.read {
+    display: flex;
+    gap: 10px;
+    min-width: 100%;
+    min-height: 70px;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.read p {
+    width: 80%;
+}
+
+#read {
+    height: 22px;
+    width: 22px;
+    margin-left: auto;
+}
+
+#submit {
+    width: 130px;
+    height: 40px;
+    background-color: rgb(151, 239, 189);
+    border: none;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0, 30%);
+    transform: scale(0);
+}
+
+#overlay.active, #modal.active {
+    transform: scale(1);
+}

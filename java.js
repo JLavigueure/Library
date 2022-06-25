@@ -9,3 +9,17 @@ function Book(title, author, pages, read) {
         return(`${this.title} by ${this.author}, ${this.pages} pages, ${hasRead}`);
     }
 }
+
+document.getElementById('add').addEventListener("click", function() {
+    document.getElementById("modal").classList.add("active");
+    document.getElementById("overlay").classList.add("active");
+});
+
+function closeModal () {
+    document.getElementById("modal").classList.remove("active");
+    document.getElementById("overlay").classList.remove("active");
+}
+
+document.getElementById('close-modal').addEventListener("click", function() {
+    closeModal();
+})
