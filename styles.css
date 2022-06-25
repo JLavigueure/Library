@@ -58,7 +58,7 @@ body {
     border-bottom: 2px solid black;
 }
 
-#close-modal {
+.close-modal {
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -126,7 +126,7 @@ body {
     margin-left: auto;
 }
 
-#submit {
+.submit {
     width: 130px;
     height: 40px;
     background-color: rgb(151, 239, 189);
@@ -134,6 +134,12 @@ body {
     border-radius: 3px;
     font-weight: 600;
     font-size: 22px;
+    color: rgb(80, 80, 80);
+}
+
+.modal button:hover {
+    color: black;
+    transform: scale(1.01);
 }
 
 #overlay {
