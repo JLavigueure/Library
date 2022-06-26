@@ -48,6 +48,7 @@ document.getElementById("submit").addEventListener("click", function() {
     }
     closeModal();
     addCard();
+    readOrNot();
 })
 
 // open modal
@@ -139,4 +140,20 @@ function addCard() {
 
     // append card to cards html
     document.getElementById('cards').appendChild(card);
+}
+
+function readOrNot() {
+    readButtons = document.querySelectorAll(".bookRead");
+    for (let k = 0; k < readButtons.length; k++) {
+        readButtons[k].addEventListener('click', function() {
+            if(event.srcElement.innerHTML == "Not Read") {
+                event.srcElement.classList.remove("bookNotRead");
+                event.srcElement.innerHTML = "Read"
+            }
+            else {
+                event.srcElement.classList.add("bookNotRead");
+                event.srcElement.innerHTML = "Not Read";
+            }
+        })
+    }
 }
