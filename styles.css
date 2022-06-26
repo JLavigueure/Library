@@ -177,7 +177,6 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(420px, 450px));
     gap: 20px;
-    border: 1px solid red;
     justify-content: center;
 }
 
