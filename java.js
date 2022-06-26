@@ -63,9 +63,11 @@ function closeModal () {
     document.getElementById("author").value = "";
     document.getElementById("pages").value = "";
     document.getElementById("read").checked = false;
+    document.getElementById("description").value = "";
 
     document.getElementById("title").classList.remove("requiredField");
     document.getElementById("author").classList.remove("requiredField");
+    document.getElementById("description").classList.remove("requiredField");
 }
 document.getElementById('close-modal').addEventListener("click", function() {
     closeModal();
