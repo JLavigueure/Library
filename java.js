@@ -49,6 +49,7 @@ document.getElementById("submit").addEventListener("click", function() {
     closeModal();
     addCard();
     readOrNot();
+    deleteCard();
 })
 
 // open modal
@@ -144,16 +145,27 @@ function addCard() {
 
 function readOrNot() {
     readButtons = document.querySelectorAll(".bookRead");
-    for (let k = 0; k < readButtons.length; k++) {
-        readButtons[k].addEventListener('click', function() {
-            if(event.srcElement.innerHTML == "Not Read") {
-                event.srcElement.classList.remove("bookNotRead");
-                event.srcElement.innerHTML = "Read"
-            }
-            else {
-                event.srcElement.classList.add("bookNotRead");
-                event.srcElement.innerHTML = "Not Read";
-            }
-        })
-    }
+    k = readButtons.length - 1;
+    readButtons[k].addEventListener('click', function() {
+        if(event.srcElement.innerHTML == "Not Read") {
+            event.srcElement.classList.remove("bookNotRead");
+            event.srcElement.innerHTML = "Read"
+        }
+        else {
+            event.srcElement.classList.add("bookNotRead");
+            event.srcElement.innerHTML = "Not Read";
+        }
+    })
+}
+
+function deleteCard() {
+    let deleteButtons = document.querySelectorAll(".deleteCard");
+    let cards = document.querySelectorAll(".card");
+    k = deleteButtons.length - 1;
+    deleteButtons[k].addEventListener('click', function() {
+        while (cards[k].firstChild) {
+            cards[k].removeChild(cards[k].firstChild);
+        }
+        cards[k].remove(cards[k]);
+    })
 }
