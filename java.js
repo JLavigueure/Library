@@ -13,7 +13,6 @@ function Book(title, author, pages, read, description) {
         return(`${this.title} by ${this.author}, ${this.pages} pages, ${hasRead}`);
     }
 }
-
 function addToBooks() {
     let bookInfo = [];
     bookInfo[0] = document.getElementById("title").value;
@@ -21,6 +20,7 @@ function addToBooks() {
     bookInfo[2] = document.getElementById("pages").value;
     bookInfo[3] = document.getElementById("read").checked;
     bookInfo[4] = document.getElementById("description").value;
+    // verifies atleast name and author entered
     for(let i = 0; i < 2; i++) {
         if(bookInfo[i] == '') {
             flag = true;
@@ -29,6 +29,13 @@ function addToBooks() {
             return;
         }
     }
+    // checks description is less than 300 characters
+    if (bookInfo[4].length > 300) {
+        flag = true;
+        document.getElementById('description').classList.add("requiredField");
+        return;
+    }
+    // pushes input to books array
     books.push(new Book(bookInfo[0], bookInfo[1], bookInfo[2], bookInfo[3], bookInfo[4]));
 }
 
@@ -64,19 +71,13 @@ document.getElementById('close-modal').addEventListener("click", function() {
     closeModal();
 })
 
-function displayBooks() {
-    for(let i = 0; i > books.length; i++) {
-
-    }
-}
-
+// makeDiv shortcut
 function makeDiv(className) {
     let div = document.createElement('div');
     div.classList.add(className);
     return div;
 }
-
-//add to page
+//add book to page
 function addCard() {
     let bookNumber = (books.length - 1);
     let newBookCard = books[books.length - 1];
@@ -102,7 +103,9 @@ function addCard() {
     by.append(byP, author);
     let pages = document.createElement('p');
         // add pages
-    pages.textContent = `${newBookCard.pages} pages`;
+    if(!(newBookCard.pages == '')) {
+        pages.textContent = `${newBookCard.pages} pages`;
+    }
     headerRight.append(pages);
 
     // create description
