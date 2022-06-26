@@ -30,7 +30,6 @@ function addToBooks() {
         }
     }
     books.push(new Book(bookInfo[0], bookInfo[1], bookInfo[2], bookInfo[3], bookInfo[4]));
-    console.log(books[books.length - 1]);
 }
 
 // submit button
@@ -41,6 +40,7 @@ document.getElementById("submit").addEventListener("click", function() {
         return;
     }
     closeModal();
+    addCard();
 })
 
 // open modal
@@ -78,8 +78,11 @@ function makeDiv(className) {
 
 //add to page
 function addCard() {
+    let bookNumber = (books.length - 1);
+    let newBookCard = books[books.length - 1];
     // create card
     let card = makeDiv('card');
+
     //create header
     let cardHeader = makeDiv('card-header');
     card.appendChild(cardHeader);
@@ -87,30 +90,48 @@ function addCard() {
     let headerRight = makeDiv('header-right');
     cardHeader.append(headerLeft, headerRight);
     let h1 = document.createElement('h1');
+        // add title
+    h1.textContent = newBookCard.title;
     let by = makeDiv('by');
     headerLeft.append(h1, by);
     let byP = document.createElement('p');
     byP.innerHTML = 'by';
     let author = document.createElement('h2');
+        // add author
+    author.textContent = newBookCard.author;
     by.append(byP, author);
     let pages = document.createElement('p');
+        // add pages
+    pages.textContent = `${newBookCard.pages} pages`;
     headerRight.append(pages);
+
     // create description
     let descriptionBox = makeDiv('card-description');
     card.append(descriptionBox);
     let descriptionP = document.createElement('p');
     descriptionP.innerHTML = "Description";
     let descriptionText = makeDiv('NA');
+        // add description
+    descriptionText.textContent = newBookCard.description;
     descriptionBox.append(descriptionP, descriptionText);
+
     // create buttons
     let cardRead = document.createElement('button');
-    cardRead.setAttribute('id', 'cardRead');
+    cardRead.setAttribute('id', `cardRead${bookNumber}`);
     cardRead.classList.add('bookRead');
+    if(newBookCard.read == false) {
+        cardRead.classList.add('bookNotRead');
+        cardRead.textContent = 'Not Read';
+    }
+    else {
+        cardRead.textContent = 'Read';
+    }
     let deleteCard = document.createElement('button');
-    deleteCard.setAttribute('id', 'deleteCard');
+    deleteCard.setAttribute('id', `deleteCard${bookNumber}`);
     deleteCard.classList.add('deleteCard');
     deleteCard.innerHTML = "Delete";
     card.append(cardRead, deleteCard);
+
     // append card to cards html
     document.getElementById('cards').appendChild(card);
 }
