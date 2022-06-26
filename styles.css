@@ -15,6 +15,8 @@ body {
     background-color: rgb(255, 255, 255);
     display: flex;
     padding: 25px 50px;
+    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.055);
+    z-index: 1;
 }
 
 #add {
@@ -137,6 +139,10 @@ body {
     color: rgb(80, 80, 80);
 }
 
+.requiredField {
+    outline: 2px solid red;
+}
+
 .modal button:hover {
     color: black;
     transform: scale(1.01);
@@ -154,4 +160,82 @@ body {
 
 #overlay.active, #modal.active {
     transform: scale(1);
+}
+
+.cards {
+    padding: 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 450px));
+}
+
+.card {
+    background-color: white;
+    border-radius: 14px;
+    padding: 20px;
+    height: 450px;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr 1fr;
+    gap: 20px;
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.159);
+}
+
+.card-header {
+    display: flex;
+}
+
+.header-right {
+    margin-left: auto;
+    align-self: flex-start;
+}
+
+.header-right p {
+    font-size: 14px;
+}
+
+.card h1 {
+    font-size: 30px;
+}
+
+.card h2 {
+    font-size: 25px;
+}
+
+.card .by {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.card-description p {
+    font-size: 14px;
+    margin-bottom: .5em;
+}
+
+.card button {
+    width: 100%;
+    height: 70px;
+    justify-self: center;
+    margin-top: auto;
+    font-weight: 600;
+    font-size: 30px;
+    border-radius: 4px;
+}
+
+.bookRead {
+    color: rgb(5, 162, 5);
+    background-color: rgb(127, 246, 127);
+    border: 3px solid rgb(5, 162, 5);
+}
+
+.bookNotRead {
+    background-color: rgb(255, 148, 148);
+    color: rgb(255, 3, 3);
+    border: 3px solid rgb(250, 0, 0);
+}
+
+.card #deleteCard {
+    background-color: rgb(255, 18, 18);
+    border: 1px solid rgb(53, 53, 53);
+    color: rgb(36, 36, 36);
+
 }
