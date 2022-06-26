@@ -30,6 +30,7 @@ function addToBooks() {
         }
     }
     books.push(new Book(bookInfo[0], bookInfo[1], bookInfo[2], bookInfo[3], bookInfo[4]));
+    console.log(books[books.length - 1]);
 }
 
 // submit button
@@ -69,3 +70,47 @@ function displayBooks() {
     }
 }
 
+function makeDiv(className) {
+    let div = document.createElement('div');
+    div.classList.add(className);
+    return div;
+}
+
+//add to page
+function addCard() {
+    // create card
+    let card = makeDiv('card');
+    //create header
+    let cardHeader = makeDiv('card-header');
+    card.appendChild(cardHeader);
+    let headerLeft = makeDiv('header-left');
+    let headerRight = makeDiv('header-right');
+    cardHeader.append(headerLeft, headerRight);
+    let h1 = document.createElement('h1');
+    let by = makeDiv('by');
+    headerLeft.append(h1, by);
+    let byP = document.createElement('p');
+    byP.innerHTML = 'by';
+    let author = document.createElement('h2');
+    by.append(byP, author);
+    let pages = document.createElement('p');
+    headerRight.append(pages);
+    // create description
+    let descriptionBox = makeDiv('card-description');
+    card.append(descriptionBox);
+    let descriptionP = document.createElement('p');
+    descriptionP.innerHTML = "Description";
+    let descriptionText = makeDiv('NA');
+    descriptionBox.append(descriptionP, descriptionText);
+    // create buttons
+    let cardRead = document.createElement('button');
+    cardRead.setAttribute('id', 'cardRead');
+    cardRead.classList.add('bookRead');
+    let deleteCard = document.createElement('button');
+    deleteCard.setAttribute('id', 'deleteCard');
+    deleteCard.classList.add('deleteCard');
+    deleteCard.innerHTML = "Delete";
+    card.append(cardRead, deleteCard);
+    // append card to cards html
+    document.getElementById('cards').appendChild(card);
+}
