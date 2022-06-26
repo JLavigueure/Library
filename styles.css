@@ -42,14 +42,14 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
-    margin-top: -255px;
+    margin-top: -335px;
     margin-left: -150px;
-    height: 510px;
     width: 370px;
     background-color: white;
     border-radius: 14px;
     z-index: 1;
     transform: scale(0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.171);
 }
 
 .modal-header {
@@ -103,6 +103,15 @@ body {
     background-color: rgb(242, 242, 242);
 }
 
+.modal-body #description {
+    width: 100%;
+    height: 120px;
+    padding: 6px;
+    background-color: rgb(242, 242, 242);
+    border: none;
+    border-radius: 5px;
+}
+
 .modal-body input::placeholder {
     font-size: 18px;
     opacity: 50%;
@@ -116,6 +125,7 @@ body {
     align-items: center;
     padding-left: 10px;
     padding-right: 20px;
+    margin: 10px 0px;
 }
 
 .read p {
@@ -233,9 +243,8 @@ body {
     border: 3px solid rgb(250, 0, 0);
 }
 
-.card #deleteCard {
+.card .deleteCard {
     background-color: rgb(255, 18, 18);
     border: 1px solid rgb(53, 53, 53);
     color: rgb(36, 36, 36);
-
 }

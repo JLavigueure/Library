@@ -1,11 +1,12 @@
 const books = [];
 let flag;
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, description) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.description = description;
     this.info = function() {
         let hasRead;
         this.read == true ? hasRead = "read" : hasRead = "not read yet";
@@ -19,6 +20,7 @@ function addToBooks() {
     bookInfo[1] = document.getElementById("author").value;
     bookInfo[2] = document.getElementById("pages").value;
     bookInfo[3] = document.getElementById("read").checked;
+    bookInfo[4] = document.getElementById("description").value;
     for(let i = 0; i < 2; i++) {
         if(bookInfo[i] == '') {
             flag = true;
@@ -27,7 +29,7 @@ function addToBooks() {
             return;
         }
     }
-    books.push(new Book(bookInfo[0], bookInfo[1], bookInfo[2], bookInfo[3]));
+    books.push(new Book(bookInfo[0], bookInfo[1], bookInfo[2], bookInfo[3], bookInfo[4]));
 }
 
 // submit button
@@ -63,6 +65,7 @@ document.getElementById('close-modal').addEventListener("click", function() {
 
 function displayBooks() {
     for(let i = 0; i > books.length; i++) {
-        
+
     }
 }
+
