@@ -1,18 +1,33 @@
 const books = [];
 let flag;
 
-function Book(title, author, pages, read, description) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.description = description;
-    this.info = function() {
-        let hasRead;
-        this.read == true ? hasRead = "read" : hasRead = "not read yet";
-        return(`${this.title} by ${this.author}, ${this.pages} pages, ${hasRead}`);
+class Book {
+    constructor(title, author, pages, read, description) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.description = description;
+        }
+        info() {
+            let hasRead;
+            this.read == true ? hasRead = "read" : hasRead = "not read yet";
+            return(`${this.title} by ${this.author}, ${this.pages} pages, ${hasRead}`);
     }
 }
+
+// function Book(title, author, pages, read, description) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+//     this.description = description;
+//     this.info = function() {
+//         let hasRead;
+//         this.read == true ? hasRead = "read" : hasRead = "not read yet";
+//         return(`${this.title} by ${this.author}, ${this.pages} pages, ${hasRead}`);
+//     }
+// }
 function addToBooks() {
     let bookInfo = [];
     bookInfo[0] = document.getElementById("title").value;
